@@ -1,4 +1,4 @@
-function Item({ description, packed, quantity }) {
+function Item({ description, packed, quantity, onDeleteItem }) {
   return (
     <>
       <li>
@@ -6,8 +6,9 @@ function Item({ description, packed, quantity }) {
           {quantity}
           {description}
         </span>
-        <button>❌</button>
+        <button onClick={onDeleteItem}>❌</button>
       </li>
+     
     </>
   );
 }

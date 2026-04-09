@@ -10,6 +10,7 @@ function Form({ handleAddItem }) {
 
   function handleItemSubmit(e) {
     e.preventDefault();
+    if(!item.description)return;
     handleAddItem(item);
   }
   function handleItemChange(e) {
@@ -43,7 +44,7 @@ function Form({ handleAddItem }) {
         ></input>
         <button>Add</button>
       </form>
-      {console.log(item.quantity)}
+      
     </>
   );
 }

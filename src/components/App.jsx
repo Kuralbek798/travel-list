@@ -15,12 +15,16 @@ function App() {
   function handleAddItem(item) {
     setItems((items) => [...items, item]);
   }
+  function handleDeleteItem(id){  
+    console.log('id ' + id);
+    setItems((items) => (items.filter((i) => i.id != id)));
+  }
   return (
     <>
       <div className="app">
         <Logo />
         <Form handleAddItem={handleAddItem} />
-        <PackingList items={items} />
+        <PackingList items={items} handleDeleteItem={handleDeleteItem} />
         <Stats />
       </div>
     </>
