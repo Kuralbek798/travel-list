@@ -1,8 +1,11 @@
-function Stats() {
+function Stats({items}) {
+  const numItems = items.length;
+  const numPackedItems = items.reduce((acc,curr) =>(acc += curr.packed === true? 1: 0),0)
+  const persentPackedItems = Math.round((numPackedItems / numItems) * 100);
   return (
     <>
       <footer className="stats">
-        <em> 💼 You have X items on your list,and you already packed X (X%)</em>
+        <em>{`💼 You have ${numItems} items on your list,and you already packed ${numPackedItems} (${persentPackedItems}%)`}</em>
       </footer>
     </>
   );
