@@ -1,17 +1,12 @@
 import { useState } from "react";
 
 function Form({ handleAddItem }) {
-  const [item, setItem] = useState({
-    description: "",
-    quantity: 0,
-    packed: false,
-    id: Date.now(),
-  });
+  const [item, setItem] = useState({description: "", quantity: 0});    
 
   function handleItemSubmit(e) {
     e.preventDefault();
     if(!item.description)return;
-    handleAddItem(item);
+    handleAddItem({...item, id: Date.now()});
   }
   function handleItemChange(e) {
     let name = e.target.name;
@@ -43,8 +38,7 @@ function Form({ handleAddItem }) {
           onChange={handleItemChange}
         ></input>
         <button>Add</button>
-      </form>
-      
+      </form>      
     </>
   );
 }
