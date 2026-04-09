@@ -1,15 +1,19 @@
 import Item from "./Item";
 
-function PackingList({items, handleDeleteItem}) {
+function PackingList({ items, handleDeleteItem, handleToggleItem }) {
   return (
     <div className="list">
       <ul>
-        {items.map(({ id, ...item }) => (
-          <Item key={id} {...item } onDeleteItem={() => handleDeleteItem(id)}  />
-         
+        {items.map((item) => (
+          <Item
+            key={item.id}
+            {...item}
+            onDeleteItem={handleDeleteItem}
+            onToggleItem={handleToggleItem}
+          />
         ))}
-      </ul>      
-    </div>    
+      </ul>
+    </div>
   );
 }
 

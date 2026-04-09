@@ -1,14 +1,25 @@
-function Item({ description, packed, quantity, onDeleteItem }) {
+function Item({
+  id,
+  description,
+  packed,
+  quantity,
+  onDeleteItem,
+  onToggleItem,
+}) {
   return (
     <>
       <li>
-        <span className={packed ? 'line-through' : ''}>
+        <input
+          type="checkbox"
+          value={packed}
+          onChange={(e) => onToggleItem(e, id)}
+        />
+        <span className={packed ? "line-through" : ""}>
           {quantity}
           {description}
         </span>
-        <button onClick={onDeleteItem}>❌</button>
+        <button onClick={() => onDeleteItem(id)}>❌</button>
       </li>
-     
     </>
   );
 }
