@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Item from "./Item";
 
-function PackingList({ items, handleDeleteItem, handleToggleItem }) {
+function PackingList({ items, handleDeleteItem, handleToggleItem, onClearList }) {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems;
@@ -13,8 +13,7 @@ function PackingList({ items, handleDeleteItem, handleToggleItem }) {
   if (sortBy === "packed") {
     sortedItems = structuredClone(items);
     sortedItems.sort((a, b) => b.packed - a.packed);
-  }
-
+  } 
 
   return (
     <div className="list">
@@ -34,7 +33,9 @@ function PackingList({ items, handleDeleteItem, handleToggleItem }) {
           <option value="description">{"Sort by description"}</option>
           <option value="packed">{"Sort by packed status"}</option>
         </select>
+         <button onClick={onClearList}>Clear list</button>
       </div>
+     
     </div>
   );
 }
