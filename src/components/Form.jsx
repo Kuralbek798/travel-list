@@ -21,7 +21,7 @@ function Form({ handleAddItem }) {
     <>
       <form name="form" className="add-form" onSubmit={handleItemSubmit}>
         <h3>What do you need for your 😍 trip?</h3>
-        <select name="select" value={quantity} onChange={handleQuantity}>
+        <select value={quantity} onChange={handleQuantity}>
           {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
             <option value={num} key={num}>
               {num}
